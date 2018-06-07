@@ -1,6 +1,6 @@
 {% set name = "ipyscales" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "8d77d4b29ccbab9c0a45a4794406e6d66812707efc26ce32f86cb3d64ad51128" %}
+{% set version = "0.2.1" %}
+{% set sha256 = "3c4d9e04666369aa23a849af07ee7a71144a7b97c2521a3f5300b239ceedd3fd" %}
 
 package:
   name: {{ name|lower }}
