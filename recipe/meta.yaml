@@ -1,6 +1,6 @@
 {% set name = "ipyscales" %}
-{% set version = "0.4.0" %}
-{% set sha256 = "98fefa6fc60accab558c98759a4354f2c0cbd3d9baf1044c23d08fbd3698b465" %}
+{% set version = "0.5.0" %}
+{% set sha256 = "cc92bbabc066039a71cada5e7e109c5f058a7433f187eea6aec5154d8c17204d" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,8 @@ source:
 
 build:
   noarch: python
-  number: 1
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -32,7 +32,7 @@ about:
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'A widget library for scales'
+  summary: A widget library for scales
 
 extra:
   recipe-maintainers:
