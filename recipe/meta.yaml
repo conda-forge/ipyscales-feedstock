@@ -20,6 +20,7 @@ requirements:
     - python
     - pip
     - jupyter-packaging
+    - nodejs
   run:
     - python
     - ipywidgets >=7,<8
