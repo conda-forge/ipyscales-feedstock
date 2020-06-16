@@ -3,7 +3,7 @@ About ipyscales
 
 Home: http://github.com/vidartf/ipyscales
 
-Package license: BSD 3-Clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
@@ -116,5 +116,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@jasongrout](https://github.com/jasongrout/)
 * [@vidartf](https://github.com/vidartf/)
 
