@@ -5,11 +5,9 @@ Home: http://github.com/vidartf/ipyscales
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ipyscales-feedstock/blob/master/LICENSE.txt)
 
 Summary: A widget library for scales
-
-
 
 Current build status
 ====================
