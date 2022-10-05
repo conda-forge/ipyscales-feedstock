@@ -1,43 +1,55 @@
-{% set name = "ipyscales" %}
-{% set version = "0.6.0" %}
-{% set sha256 = "f2c42776482081b2771a2789623e1744a4e578f5d51644c1450b53738292b069" %}
+{% set version = "0.7.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: ipyscales
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/i/ipyscales/ipyscales-{{ version }}.tar.gz
+  sha256: ad0968121f63f920251e54ffb457fcc25032f0a8b428e2b399c9b5f1aa2aaf72
 
 build:
-  noarch: python
   number: 0
+  noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python
+    - jupyter-packaging
+    - jupyterlab ==3.*
+    - nodejs >=16,!=17.*,<19
     - pip
-    - jupyter-packaging 
-    - jupyterlab >=3,<4
-    - nodejs
+    - python >=3.7
   run:
-    - python
-    - ipywidgets >=7,<8
+    - python >=3.7
+    - ipywidgets >=7.0.0,<8
 
 test:
   imports:
-    - {{ name }}
+    - ipyscales
+  requires:
+    - pip
+    - jupyterlab ==3.*
+    - m2-grep  # [win]
+  commands:
+    - pip check
+    - jupyter labextension list
+    - jupyter nbextension list
+    - jupyter labextension list 1>labextensions 2>&1
+    - jupyter nbextension list 1>nbextensions 2>&1
+    - grep -iE "jupyter-scales.*enabled" nbextensions
+    - grep -iE "jupyter-scales.*OK" labextensions
 
 about:
-  home: http://github.com/vidartf/{{ name }}
-  license: BSD-3-Clause
-  license_family: BSD
-  license_file: LICENSE.txt
+  home: https://github.com/vidartf/ipyscales
   summary: A widget library for scales
+  license: BSD-3-Clause
+  license_file:
+    - LICENSE.txt
+    - js/lab-dist/jupyter-scales/static/third-party-licenses.json
 
 extra:
   recipe-maintainers:
     - vidartf
     - jasongrout
+    - bollwyvl
