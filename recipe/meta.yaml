@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/ipyscales/ipyscales-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/i/ipyscales/ipyscales-{{ version }}.tar.gz
   sha256: ad0968121f63f920251e54ffb457fcc25032f0a8b428e2b399c9b5f1aa2aaf72
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -19,9 +19,9 @@ requirements:
     - jupyterlab ==3.*
     - nodejs >=16,!=17.*,<19
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - ipywidgets >=7.0.0,<9
 
 test:
@@ -31,6 +31,7 @@ test:
     - pip
     - jupyterlab ==3.*
     - m2-grep  # [win]
+    - python {{ python_min }}
   commands:
     - pip check
     - jupyter labextension list
